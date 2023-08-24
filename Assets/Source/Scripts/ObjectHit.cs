@@ -1,5 +1,12 @@
 using UnityEngine;
 public class ObjectHit : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision) => GetComponent<MeshRenderer>().material.color = Color.red;
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            GetComponent<MeshRenderer>().material.color = Color.red;
+            transform.tag = "Hit";
+        }
+    }
 }
